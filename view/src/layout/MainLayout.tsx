@@ -33,7 +33,7 @@ const MainLayout = () => {
           </NavLink>
         </ul>
       </nav>
-      <div className="max-w-4xl mx-auto p-6  min-h-[70vh]">
+      <div className="max-w-4xl mx-auto p-6 min-h-[70vh]">
         <Outlet />
       </div>
     </div>

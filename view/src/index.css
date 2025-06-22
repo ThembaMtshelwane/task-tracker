@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+input {
+  @apply border-2 border-blue-500 rounded-lg p-2;
+}
+
+button {
+  @apply p-2 bg-blue-700 text-white rounded font-bold py-4 cursor-pointer hover:bg-blue-500;
+}
