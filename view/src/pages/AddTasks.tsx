@@ -20,7 +20,7 @@ const AddTasks = () => {
     setMessage(res.data.message);
   };
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col  space-y-6">
       <div className="text-center text-blue-700 space-y-2">
         <h1 className="text-5xl font-semibold">Time Tracker </h1>
         <p className="text-lg"> Track your time, boost your productivity</p>

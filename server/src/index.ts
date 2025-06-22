@@ -4,6 +4,8 @@ import { PORT } from "./constants/env.constants";
 import taskRoutes from "./routes/tasks.route";
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
@@ -14,10 +16,6 @@ app.use(
 );
 
 app.use("/api/tasks", taskRoutes);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello, World");
 });
