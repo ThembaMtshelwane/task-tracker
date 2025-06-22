@@ -1,15 +1,23 @@
 import { useState, type FormEvent } from "react";
 import type { ITask } from "../definition";
+import { useCreateTaskMutation } from "../slices/taskSlice";
 
 const AddTasks = () => {
   const [taskName, setTaskName] = useState<string>("");
   const [duration, setDuration] = useState<number>(0);
+  const [createTask] = useCreateTaskMutation();
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const task: ITask = { name: taskName, duration };
 
-    console.log("Task  ", task);
+    const res = await createTask(task);
+    if (!res.data?.success) {
+      setMessage(`ERROR: Could not create ${task.name}`);
+      return;
+    }
+    setMessage(res.data.message);
   };
   return (
     <section className="flex flex-col gap-4">
@@ -30,6 +38,7 @@ const AddTasks = () => {
               type="text"
               name="name"
               id="name"
+              required
               placeholder="e.g. Wash the dishes"
               onChange={(e) => setTaskName(e.target.value)}
             />
@@ -40,9 +49,12 @@ const AddTasks = () => {
               type="number"
               min={0}
               placeholder="e.g. 2"
+              required
               onChange={(e) => setDuration(parseFloat(e.target.value) || 0)}
             />
           </div>
+
+          <p>{message}</p>
 
           <button type="submit">Submit</button>
         </form>
