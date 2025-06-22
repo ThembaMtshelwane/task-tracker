@@ -1,6 +1,7 @@
 # Task Tracker
 
 Task Tracker is a full-stack application designed to help you manage your tasks efficiently. It utilizes the PERN stack (PostgreSQL, Express.js, React, Node.js) for robust and scalable performance.
+Live site [live site](https://task-tracker-ochre-one.vercel.app/)
 
 ## Table of Contents
 
@@ -59,7 +60,7 @@ Before you begin, ensure you have the following installed:
 
 ### Environment Variables
 
-Both the backend requires specific environment variables to function correctly.
+The backend requires specific environment variables to function correctly.
 
 #### Backend (`server/.env`)
 
@@ -109,16 +110,14 @@ SUPABASE_TABLE_NAME=Tasks
     # or
     yarn dev
     ```
-    The frontend application will typically open in your browser at `http://localhost:5173` (or a similar port provided by Vite).
+    The frontend application will typically open in your browser at `http://localhost:3000` (or a similar port provided by Vite).
 
 ## Usage
 
 Once both the backend and frontend servers are running, you can access the Task Tracker application in your web browser. You'll be able to:
 
-- Add new tasks with descriptions.
+- Add new tasks with its duration.
 - View a list of all your tasks.
-- Edit existing tasks.
-- Delete tasks you no longer need.
 
 ## Contributing
 
@@ -135,4 +134,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Sources
