@@ -121,6 +121,10 @@ Once both the backend and frontend servers are running, you can access the Task 
 - Add new tasks with its duration.
 - View a list of all your tasks.
 
+## Future Improvemetns
+- Add the full CRUD operations (Edit and Delete)
+- Add a live timer to keep track of the duration
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
