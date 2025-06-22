@@ -1,7 +1,7 @@
 # Task Tracker
 
 Task Tracker is a full-stack application designed to help you manage your tasks efficiently. It utilizes the PERN stack (PostgreSQL, Express.js, React, Node.js) for robust and scalable performance.
-Live site [live site](https://task-tracker-ochre-one.vercel.app/)
+Live site: https://task-tracker-ochre-one.vercel.app/
 
 ## Table of Contents
 
