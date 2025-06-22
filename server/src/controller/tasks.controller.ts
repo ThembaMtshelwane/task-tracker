@@ -27,7 +27,21 @@ export const createTask = expressAsyncHandler(
 
 // Retrieve all tasks
 export const getTasks = expressAsyncHandler(
-  async (req: Request, res: Response) => {}
+  async (req: Request, res: Response) => {
+    const { data, error } = await supabase.from(SUPABASE_TABLE_NAME).select();
+
+    if (error) {
+      res.status(500).json({
+        message: "Error retrieving tasks",
+        error: error.message,
+      });
+      return;
+    }
+    res.status(200).json({
+      message: "Tasks retrieved successfully",
+      data,
+    });
+  }
 );
 
 // Update a single task by ID
