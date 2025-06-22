@@ -18,7 +18,7 @@ const AddTasks = () => {
         <p className="text-lg"> Track your time, boost your productivity</p>
       </div>
 
-      <div className="h-[50vh] flex flex-col w-[70%] mx-auto justify-center">
+      <div className="h-[50vh] flex flex-col w-full sm:w-[70%] mx-auto justify-center">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col border p-4 gap-4"

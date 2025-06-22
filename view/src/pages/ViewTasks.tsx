@@ -11,7 +11,7 @@ const ViewTasks = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col w-[70%] mx-auto justify-center gap-4">
+      <div className=" flex flex-col w-full sm:w-[70%] mx-auto justify-center gap-4">
         <TaskCard name={"Task 1"} duration={0} />
         <TaskCard name={"Task 1"} duration={1.75} />
         <TaskCard name={"Task 1"} duration={0.25} />

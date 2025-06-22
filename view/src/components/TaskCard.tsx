@@ -7,13 +7,13 @@ type TaskCardProps = {
 
 const TaskCard = ({ name, duration }: TaskCardProps) => {
   return (
-    <div className="flex border rounded-2xl border-blue-700 justify-between gap-4 cursor-default px-2 py-4">
+    <div className="flex flex-col sm:flex-row border rounded-2xl border-blue-700 justify-between gap-4 cursor-default px-2 py-4">
       <div className=" w-[65%]">
         <div>Name: {name}</div>
         <div>Duration (hrs): {duration} </div>
         <div>Duration detailed: {convertHoursToDigitalClock(duration)} </div>
       </div>
-      <div className="w-[40%] flex gap-4 items-center justify-around ">
+      <div className="sm:w-[40%] flex gap-4 items-center justify-around ">
         <button className="w-[250px]">Edit</button>
         <button className="w-[250px]">Delete</button>
       </div>
