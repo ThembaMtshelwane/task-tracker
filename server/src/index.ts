@@ -6,14 +6,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://task-tracker-ochre-one.vercel.app/",
-    ],
-  })
-);
+app.use(cors());
 
 app.use("/api/tasks", taskRoutes);
 app.get("/", (req: Request, res: Response) => {
