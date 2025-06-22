@@ -43,9 +43,11 @@ Live site: https://task-tracker-ochre-one.vercel.app/
 ## Project Structure
 
 The project follows a modular structure:
+
 task-tracker/
-├── server/ # Backend (Node.js, Express, TypeScript)
-├── view/ # Frontend (React, TypeScript, Redux ToolKit, TailwindCss, Vite)
+
+    ├── server/         # Backend (Node.js, Express, TypeScript)
+    ├── view/           # Frontend (React, TypeScript, Redux ToolKit, TailwindCss, Vite)
 
 ## Getting Started
 
