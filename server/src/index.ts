@@ -4,9 +4,9 @@ import { PORT } from "./constants/env.constants";
 import taskRoutes from "./routes/tasks.route";
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 app.use("/api/tasks", taskRoutes);
 app.get("/", (req: Request, res: Response) => {
