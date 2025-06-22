@@ -11,8 +11,6 @@ export default defineConfig({
       "/api": {
         // target: "http://localhost:9000",
         target: "https://task-tracker-71ta.vercel.app/",
-        changeOrigin: true,
-        secure: true,
       },
     },
   },
