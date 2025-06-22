@@ -56,6 +56,7 @@ const AddTasks = () => {
             <input
               type="number"
               min={0}
+              step={0.1}
               placeholder="e.g. 2"
               required
               value={duration}
