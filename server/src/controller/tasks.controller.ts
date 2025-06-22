@@ -46,7 +46,41 @@ export const getTasks = expressAsyncHandler(
 
 // Update a single task by ID
 export const updateTask = expressAsyncHandler(
-  async (req: Request, res: Response) => {}
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { name, duration } = req.body;
+
+    const { data: existingTask } = await supabase
+      .from(SUPABASE_TABLE_NAME)
+      .select("id")
+      .eq("id", id)
+      .single();
+
+    if (!existingTask) {
+      res.status(404).json({
+        message: `Task with ID ${id} not found. Cannot update.`,
+      });
+      return;
+    }
+
+    const { data: updatedTaskData, error: updateError } = await supabase
+      .from(SUPABASE_TABLE_NAME)
+      .update({ name, duration })
+      .eq("id", id)
+      .select();
+
+    if (updateError) {
+      res.status(500).json({
+        message: "Error updating task",
+        error: updateError.message,
+      });
+      return;
+    }
+    res.status(200).json({
+      message: "Task updated successfully",
+      data: updatedTaskData ? updatedTaskData[0] : null, // Return the updated task data
+    });
+  }
 );
 
 // Delete a task by ID
