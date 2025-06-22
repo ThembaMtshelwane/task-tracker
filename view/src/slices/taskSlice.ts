@@ -1,7 +1,7 @@
 import type { ITask } from "../definition";
 import { apiSlice } from "./apiSlice";
 
-const Task_URL = "/api/tasks";
+const Task_URL = "https://task-tracker-71ta.vercel.app/api/tasks";
 
 export const TaskApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
