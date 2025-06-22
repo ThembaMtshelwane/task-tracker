@@ -85,5 +85,37 @@ export const updateTask = expressAsyncHandler(
 
 // Delete a task by ID
 export const deleteTask = expressAsyncHandler(
-  async (req: Request, res: Response) => {}
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    const { data: existingTask } = await supabase
+      .from(SUPABASE_TABLE_NAME)
+      .select("id")
+      .eq("id", id)
+      .single();
+
+    if (!existingTask) {
+      res.status(404).json({
+        message: `Task with ID ${id} not found. Cannot update.`,
+      });
+      return;
+    }
+
+    const { error } = await supabase
+      .from(SUPABASE_TABLE_NAME)
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      res.status(500).json({
+        message: "Error deleting task",
+        error: error.message,
+      });
+      return;
+    }
+
+    res.status(200).json({
+      message: "Task deleted successfully",
+    });
+  }
 );
