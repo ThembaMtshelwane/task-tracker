@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { PORT } from "./constants/env.constants";
-
+import taskRoutes from "./routes/tasks.route";
 const app = express();
 
 app.use(
@@ -12,6 +12,8 @@ app.use(
     ],
   })
 );
+
+app.use("/api/tasks", taskRoutes);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
