@@ -9,8 +9,8 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:9000",
-        // target: "https://task-tracker-71ta.vercel.app/",
+        // target: "http://localhost:9000",
+        target: "https://task-tracker-71ta.vercel.app/",
         changeOrigin: true,
         secure: true,
       },

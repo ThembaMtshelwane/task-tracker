@@ -25,7 +25,11 @@ const ViewTasks = () => {
         ) : (
           <>
             {data?.data.map((task) => (
-              <TaskCard name={task.name} duration={task.duration} />
+              <TaskCard
+                name={task.name}
+                duration={task.duration}
+                key={task.name + task.duration}
+              />
             ))}
           </>
         )}

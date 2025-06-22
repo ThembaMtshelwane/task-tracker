@@ -5,22 +5,29 @@ import { useCreateTaskMutation } from "../slices/taskSlice";
 const AddTasks = () => {
   const [taskName, setTaskName] = useState<string>("");
   const [duration, setDuration] = useState<number>(0);
-  const [createTask] = useCreateTaskMutation();
+  const [createTask, { isLoading }] = useCreateTaskMutation();
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (duration <= 0) {
+      setMessage("Duration cannot be 0 or less");
+      return alert("Duration cannot be 0 or less");
+    }
     const task: ITask = { name: taskName, duration };
 
     const res = await createTask(task);
-    if (!res.data?.success) {
+    if (!res.data) {
       setMessage(`ERROR: Could not create ${task.name}`);
       return;
     }
     setMessage(res.data.message);
+    setTaskName("");
+    setDuration(0);
   };
   return (
-    <section className="flex flex-col  space-y-6">
+    <section className="flex flex-col gap-4">
       <div className="text-center text-blue-700 space-y-2">
         <h1 className="text-5xl font-semibold">Time Tracker </h1>
         <p className="text-lg"> Track your time, boost your productivity</p>
@@ -41,6 +48,7 @@ const AddTasks = () => {
               required
               placeholder="e.g. Wash the dishes"
               onChange={(e) => setTaskName(e.target.value)}
+              value={taskName}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -50,13 +58,16 @@ const AddTasks = () => {
               min={0}
               placeholder="e.g. 2"
               required
+              value={duration}
               onChange={(e) => setDuration(parseFloat(e.target.value) || 0)}
             />
           </div>
 
           <p>{message}</p>
 
-          <button type="submit">Submit</button>
+          <button disabled={isLoading} type="submit">
+            {isLoading ? "isLoading..." : "Submit"}
+          </button>
         </form>
       </div>
     </section>
